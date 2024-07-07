@@ -92,3 +92,45 @@ bool Locations::add_location(const char* s) {
 
     return 0;
 }
+
+
+bool Locations::remove_location(const char* s)
+{
+    sqlite3* DB;
+    char* messageError;
+
+    string sql =  "DELETE FROM LOCATIONS WHERE ID = "+to_string(location_ID)+";";
+
+    int exit = sqlite3_open(s, &DB);
+    exit = sqlite3_exec(DB, sql.c_str(), NULL,0, &messageError);
+    if (exit != SQLITE_OK) {
+        cerr << "Error in deleteData function." << endl;
+        sqlite3_free(messageError);
+    }
+    else
+        cout << "Records deleted Successfully!" << endl;
+
+    return 0;
+}
+
+
+bool Locations::update_location(const char* s)
+{
+    sqlite3* DB;
+    char* messageError;
+    string new_name = "lisbon", new_lat = "12.54", new_lon = "23.54";
+    string sql("UPDATE LOCATIONS SET NAME = '"+new_name+"' WHERE ID = "+to_string(location_ID) +";"
+        "UPDATE LOCATIONS SET LATITUDE = " + new_lat + " WHERE ID = " + to_string(location_ID) + ";"
+        "UPDATE LOCATIONS SET LONGITUDE = " + new_lon + " WHERE ID = " + to_string(location_ID) + ";");
+    int exit = sqlite3_open(s, &DB);
+    /* An open database, SQL to be evaluated, Callback function, 1st argument to callback, Error msg written here */
+    exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messageError);
+    if (exit != SQLITE_OK) {
+        cerr << "Error in updateData function." << endl;
+        sqlite3_free(messageError);
+    }
+    else
+        cout << "Records updated Successfully!" << endl;
+
+    return 0;
+}

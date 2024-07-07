@@ -12,7 +12,7 @@ int main()
 
 	Locations location = Locations();
 	location.create_location_table(dir);
-	location.add_location(dir);
+	location.update_location(dir);
 	sqlite3_close(DB);
 
    return 0;
