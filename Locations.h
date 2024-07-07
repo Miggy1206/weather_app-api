@@ -12,7 +12,10 @@ private:
 	bool favourite;
 
 public:
-	bool add_location();
+	bool add_location(const char* s);
 	bool delete_location();
+	bool create_location_table(const char* s);
+	bool edit_location();
+
 
 };
