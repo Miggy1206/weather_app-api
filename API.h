@@ -1,6 +1,7 @@
 #pragma once
-
 #include "Constants.h"
+
+using namespace std;
 
 class API
 {

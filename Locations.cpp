@@ -52,7 +52,6 @@ bool Locations::create_location_table(const char* s)
     {
         int exit = 0;
         exit = sqlite3_open(s, &DB);
-        /* An open database, SQL to be evaluated, Callback function, 1st argument to callback, Error msg written here */
         exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messageError);
         if (exit != SQLITE_OK) {
             cerr << "Error in createTable function." << endl;
@@ -75,14 +74,14 @@ bool Locations::add_location(const char* s) {
     sqlite3* DB;
     char* messageError;
 
-    double lat = 13.54;
-    double lon = 45.56;
-    string location_name = "london";
+    double lat = 45.54;
+    double lon = 90.56;
+    string location_name = "porto";
 
-    string sql("INSERT INTO LOCATIONS (LATITUDE, LONGITUDE, NAME, FAVOURITE) VALUES("+to_string(lat) + ", " + to_string(lon) + ", " + location_name + ", false);");
+    string sql("INSERT INTO LOCATIONS (LATITUDE, LONGITUDE, NAME, FAVOURITE) VALUES("+to_string(lat) + ", " + to_string(lon) + ", '" + location_name + "', false);");
 
-    int exit = sqlite3_open(dir, &DB);
-    /* An open database, SQL to be evaluated, Callback function, 1st argument to callback, Error msg written here */
+    int exit = sqlite3_open(s, &DB);
+
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messageError);
     if (exit != SQLITE_OK) {
         cerr << "Error in insertData function." << endl;

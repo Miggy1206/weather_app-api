@@ -14,5 +14,3 @@
 using namespace std;
 using namespace Json;
 
-
-const char* dir = R"(..\weather_demo\weather_database.db)";
