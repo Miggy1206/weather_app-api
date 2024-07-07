@@ -146,17 +146,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AirQuality.cpp" />
     <ClCompile Include="API.cpp" />
+    <ClCompile Include="ForecastWeather.cpp" />
+    <ClCompile Include="HistoricalWeather.cpp" />
     <ClCompile Include="Locations.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Weather.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AirQuality.h" />
     <ClInclude Include="API.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="ForecastWeather.h" />
+    <ClInclude Include="HistoricalWeather.h" />
     <ClInclude Include="Locations.h" />
+    <ClInclude Include="Weather.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
