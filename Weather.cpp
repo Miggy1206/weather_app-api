@@ -7,3 +7,7 @@ void Weather::set_coordinates(double lat, double lon) {
 	longitude = lon;
 }
 
+
+void Weather::set_weather_data(Value data) {
+	weather_data = data;
+}
